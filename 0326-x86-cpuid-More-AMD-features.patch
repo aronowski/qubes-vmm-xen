@@ -26,12 +26,13 @@ index 51efbff579e6..8893547bebce 100644
  };
  
  static const char *const str_7b0[32] =
-@@ -199,9 +200,14 @@ static const char *const str_7a1[32] =
+@@ -199,10 +200,15 @@ static const char *const str_7a1[32] =
  
  static const char *const str_e21a[32] =
  {
 +    [ 0] = "no-nest-bp",    [ 1] = "fs-gs-ns",
      [ 2] = "lfence+",
+     /* 4 */                 [ 5] = "verw-clear",
      [ 6] = "nscb",
      [ 8] = "auto-ibrs",
 +    [10] = "amd-fsrs",      [11] = "amd-fsrc",
@@ -53,13 +54,14 @@ index eb9f552948be..3de7c0383f0e 100644
  
  /* Intel-defined CPU features, CPUID level 0x0000000D:1.eax, word 4 */
  XEN_CPUFEATURE(XSAVEOPT,      4*32+ 0) /*A  XSAVEOPT instruction */
-@@ -290,9 +291,16 @@ XEN_CPUFEATURE(WRMSRNS,      10*32+19) /*S  WRMSR Non-Serialising */
+@@ -290,10 +291,17 @@ XEN_CPUFEATURE(WRMSRNS,      10*32+19) /*S  WRMSR Non-Serialising */
  XEN_CPUFEATURE(FSRCS,        10*32+12) /*A  Fast Short REP CMPSB/SCASB */
  
  /* AMD-defined CPU features, CPUID level 0x80000021.eax, word 11 */
 +XEN_CPUFEATURE(NO_NEST_BP,         11*32+ 0) /*A  No Nested Data Breakpoints */
 +XEN_CPUFEATURE(FS_GS_NS,           11*32+ 1) /*S  FS/GS base MSRs non-serialising */
  XEN_CPUFEATURE(LFENCE_DISPATCH,    11*32+ 2) /*A  LFENCE always serializing */
+ XEN_CPUFEATURE(VERW_CLEAR,         11*32+ 5) /*!A VERW clears microarchitectural buffers */
  XEN_CPUFEATURE(NSCB,               11*32+ 6) /*A  Null Selector Clears Base (and limit too) */
  XEN_CPUFEATURE(AUTO_IBRS,          11*32+ 8) /*   Automatic IBRS */
 +XEN_CPUFEATURE(AMD_FSRS,           11*32+10) /*A  Fast Short REP STOSB */
