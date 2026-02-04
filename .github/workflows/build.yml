@@ -1,0 +1,21 @@
+name: Example renovate workflow
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6.0.2
+        with:
+          fetch-depth: 0
+      - name: Self-hosted Renovate
+        uses: renovatebot/github-action@v46.0.1
+        with:
+          configurationFile: renovate.json
+          token: ${{ secrets.RENOVATE_TOKEN }}
+
