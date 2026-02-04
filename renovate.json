@@ -1,5 +1,5 @@
 {
-  "branchPrefix": "test-renovate/",
+  "baseBranchPatterns": ["main", "/^release\\/.*/"],
   "dryRun": "full",
   "username": "renovate-release",
   "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
